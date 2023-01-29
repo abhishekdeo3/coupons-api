@@ -1,0 +1,122 @@
+buildscript {
+    ext {
+        springBootVersion = '2.7.5'
+        springDocVersion = '1.6.12'
+        lombokVersion = '1.18.24'
+        postgresqlVersion = '42.5.0'
+        springSecurityVersion = '5.7.5'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath 'org.owasp:dependency-check-gradle:7.4.4'
+    }
+}
+
+plugins {
+    id 'java'
+    id "org.springframework.boot" version "${springBootVersion}"
+    id "io.spring.dependency-management" version "1.0.14.RELEASE"
+    id 'jacoco'
+}
+
+apply plugin: 'org.owasp.dependencycheck'
+
+project.ext {
+    serviceName = rootProject.name
+}
+
+group = "com.payback"
+version = "0.0.1-SNAPSHOT"
+java.sourceCompatibility = JavaVersion.VERSION_17
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
+
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa') {
+        exclude group: 'org.apache.tomcat', module: 'tomcat-jdbc'
+    }
+
+    implementation('org.flywaydb:flyway-core')
+    implementation("org.postgresql:postgresql:${postgresqlVersion}")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    implementation("org.springdoc:springdoc-openapi-ui:${springDocVersion}")
+    implementation("org.springdoc:springdoc-openapi-data-rest:${springDocVersion}")
+    implementation("org.springdoc:springdoc-openapi-security:${springDocVersion}")
+
+    // https://mvnrepository.com/artifact/com.maxmind.geoip2/geoip2
+    implementation group: 'com.maxmind.geoip2', name: 'geoip2', version: '2.3.1'
+
+    // Lombok
+    compileOnly("org.projectlombok:lombok:${lombokVersion}")
+    annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+    testCompileOnly("org.projectlombok:lombok:${lombokVersion}")
+    testAnnotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+
+    // Version overrides
+    implementation('org.yaml:snakeyaml:1.33')
+    implementation("org.springframework.security:spring-security-config:${springSecurityVersion}")
+    implementation("org.springframework.security:spring-security-crypto:${springSecurityVersion}")
+    implementation("org.springframework.security:spring-security-core:${springSecurityVersion}")
+    implementation("org.springframework.security:spring-security-web:${springSecurityVersion}")
+
+    // Test
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.springframework.security:spring-security-test')
+    testImplementation('org.testcontainers:postgresql:1.17.2')
+    testImplementation('org.testcontainers:junit-jupiter:1.17.2')
+    testImplementation 'com.h2database:h2'
+}
+
+test {
+    useJUnitPlatform()
+
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+    reports {
+        xml.required = true
+        csv.required = false
+        xml.destination file("${buildDir}/reports/jacoco.xml")
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                counter = 'INSTRUCTION'
+                value = 'COVEREDRATIO'
+                minimum = 0.20
+            }
+            limit {
+                counter = 'BRANCH'
+                value = 'COVEREDRATIO'
+                minimum = 0.09
+            }
+        }
+    }
+}
+
+dependencyCheck {
+    cveValidForHours = 24
+    suppressionFile = 'dependencySuppressions.xml'
+    failBuildOnCVSS = 7
+    analyzers {
+        assemblyEnabled = false
+        nexusEnabled = false
+        nuspecEnabled = false
+        nodeEnabled = false
+    }
+}
