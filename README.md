@@ -98,3 +98,12 @@ curl --location --request GET 'localhost:8091/member-coupons/1?latitude=48.13715
 ```
 http://localhost:8180/?pgsql=db&username=root&db=payback&ns=payback&select=coupon
 ```
+
+### Swagger UI
+
+```
+User: pointee
+Password: payback
+
+http://localhost:8091/swagger-ui/index.html
+```
