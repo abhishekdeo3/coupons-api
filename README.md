@@ -36,3 +36,9 @@ curl --location --request GET 'localhost:8091/member-coupons/1?latitude=48.13715
 ```
 ./gradlew clean build jacocoTestCoverageVerification
 ```
+
+### PostgreSQL Database Available at:
+
+```
+http://localhost:8180/?pgsql=db&username=root&db=payback&ns=payback&select=coupon
+```
