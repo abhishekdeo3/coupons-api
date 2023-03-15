@@ -1,6 +1,6 @@
-package com.payback.couponsapi.repository;
+package com.coupons.api.repository;
 
-import com.payback.couponsapi.model.CouponEntity;
+import com.coupons.api.model.CouponEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

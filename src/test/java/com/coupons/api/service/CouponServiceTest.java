@@ -1,9 +1,9 @@
-package com.payback.couponsapi.service;
+package com.coupons.api.service;
 
-import com.payback.couponsapi.PaybackCouponsApiApplication;
-import com.payback.couponsapi.dto.Coupons;
-import com.payback.couponsapi.model.CouponEntity;
-import com.payback.couponsapi.repository.CouponRepository;
+import com.coupons.api.CouponsApiApplication;
+import com.coupons.api.dto.Coupons;
+import com.coupons.api.model.CouponEntity;
+import com.coupons.api.repository.CouponRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest(classes = PaybackCouponsApiApplication.class)
+@SpringBootTest(classes = CouponsApiApplication.class)
 @ActiveProfiles("test")
 class CouponServiceTest {
 

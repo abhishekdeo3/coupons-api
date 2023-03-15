@@ -1,13 +1,13 @@
-package com.payback.couponsapi;
+package com.coupons.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PaybackCouponsApiApplication {
+public class CouponsApiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PaybackCouponsApiApplication.class, args);
+        SpringApplication.run(CouponsApiApplication.class, args);
     }
 
 }

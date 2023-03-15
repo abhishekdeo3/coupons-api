@@ -1,7 +1,7 @@
-package com.payback.couponsapi.controller.converter;
+package com.coupons.api.controller.converter;
 
-import com.payback.couponsapi.dto.Coupon;
-import com.payback.couponsapi.model.CouponEntity;
+import com.coupons.api.dto.Coupon;
+import com.coupons.api.model.CouponEntity;
 
 public class CouponEntityToCouponConverter {
 

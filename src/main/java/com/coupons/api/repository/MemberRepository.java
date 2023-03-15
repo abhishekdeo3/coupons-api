@@ -1,6 +1,6 @@
-package com.payback.couponsapi.repository;
+package com.coupons.api.repository;
 
-import com.payback.couponsapi.model.MemberEntity;
+import com.coupons.api.model.MemberEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MemberRepository extends JpaRepository<MemberEntity, String> {

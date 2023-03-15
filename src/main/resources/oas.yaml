@@ -1,19 +1,19 @@
 openapi: 3.0.1
 info:
-  title: Payback Coupon API
+  title: Coupon API
   description: This API provides list of valid coupons of a member. List is sorted by valid until date. If Latitude and longitude provided as a parameters then API returns coupon list sorted by distance.
   contact:
-    name: Payback Coupons Management
-    url: https://payback.de
-    email: coupons@payback.de
+    name: Coupons Management
+    url: https://coupon-xxx.de
+    email: coupons@xxx.de
   version: 1.0.0
   x-business-objects:
     - Coupons
-  x-business-domain: Payback
-  x-product: Payback Coupons
+  x-business-domain: Coupon
+  x-product: Coupons
 servers:
   - url: http://localhost:8091/
-    description: Payback Coupons API local Environment
+    description: Coupons API local Environment
 security:
   - Basic-Authentication: []
 paths:

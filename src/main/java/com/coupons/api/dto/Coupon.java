@@ -1,4 +1,4 @@
-package com.payback.couponsapi.dto;
+package com.coupons.api.dto;
 
 import lombok.Builder;
 import lombok.Getter;

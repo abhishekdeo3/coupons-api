@@ -1,10 +1,10 @@
-package com.payback.couponsapi.service;
+package com.coupons.api.service;
 
-import com.payback.couponsapi.controller.converter.CouponEntityToCouponConverter;
-import com.payback.couponsapi.dto.Coupon;
-import com.payback.couponsapi.dto.Coupons;
-import com.payback.couponsapi.model.CouponEntity;
-import com.payback.couponsapi.repository.CouponRepository;
+import com.coupons.api.controller.converter.CouponEntityToCouponConverter;
+import com.coupons.api.dto.Coupon;
+import com.coupons.api.dto.Coupons;
+import com.coupons.api.model.CouponEntity;
+import com.coupons.api.repository.CouponRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

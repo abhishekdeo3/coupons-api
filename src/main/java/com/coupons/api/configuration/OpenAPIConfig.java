@@ -1,4 +1,4 @@
-package com.payback.couponsapi.configuration;
+package com.coupons.api.configuration;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
@@ -15,27 +15,27 @@ import org.springframework.context.annotation.Configuration;
 
 @OpenAPIDefinition(
         info = @Info(
-                title = "Payback Coupon API",
+                title = "Coupon API",
                 version = "1.0.0",
                 description = "This API provides list of valid coupons of a member. List is sorted by valid until date. " +
                         "If Latitude and longitude provided as a parameters then API returns coupon list sorted by distance.",
                 extensions = {
                         @Extension(properties = {
-                                @ExtensionProperty(name = "x-business-domain", value = "Payback")
+                                @ExtensionProperty(name = "x-business-domain", value = "Coupon")
                         }),
                         @Extension(properties = {
                                 @ExtensionProperty(name = "x-business-objects", parseValue = true, value = "[\"Coupons\"]")
                         }),
-                        @Extension(properties = {@ExtensionProperty(name = "x-product", value = "Payback Coupons")})
+                        @Extension(properties = {@ExtensionProperty(name = "x-product", value = "Coupons")})
                 },
-                contact = @Contact(url = "https://payback.de", name = "Payback Coupons Management", email = "coupons@payback.de")
+                contact = @Contact(url = "https://coupon-xxx.de", name = "Coupons Management", email = "coupons@xxx.de")
         ),
         security = {
                 @SecurityRequirement(name = "Basic-Authentication"),
         },
         servers = {
                 @Server(
-                        description = "Payback Coupons API local Environment",
+                        description = "Coupons API local Environment",
                         url = "http://localhost:8091/"
                 )
         }

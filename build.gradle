@@ -28,7 +28,7 @@ project.ext {
     serviceName = rootProject.name
 }
 
-group = "com.payback"
+group = "com.coupons"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
 

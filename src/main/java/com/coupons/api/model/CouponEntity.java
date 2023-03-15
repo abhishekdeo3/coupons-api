@@ -1,4 +1,4 @@
-package com.payback.couponsapi.model;
+package com.coupons.api.model;
 
 import lombok.Getter;
 import lombok.Setter;

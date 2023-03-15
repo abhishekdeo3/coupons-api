@@ -1,7 +1,7 @@
-package com.payback.couponsapi.controller;
+package com.coupons.api.controller;
 
-import com.payback.couponsapi.dto.Coupons;
-import com.payback.couponsapi.service.CouponService;
+import com.coupons.api.dto.Coupons;
+import com.coupons.api.service.CouponService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;

@@ -6,9 +6,9 @@ spring:
   profiles:
     active: local
   datasource:
-    url: jdbc:postgresql://localhost:5432/payback?user=root&password=secret
+    url: jdbc:postgresql://localhost:5432/test?user=root&password=secret
     hikari:
-      schema: payback
+      schema: test
   jpa:
     database: postgresql
     open-in-view: false
@@ -16,18 +16,18 @@ spring:
       ddl-auto: none
     properties:
       hibernate:
-        default_schema: payback
+        default_schema: test
 
   flyway:
     enabled: true
     baseline-on-migrate: true
     baseline-version: 0
-    schemas: payback
+    schemas: test
 
   security:
     user:
-      name: "pointee"
-      password: "payback"
+      name: "user"
+      password: "password"
 
 springdoc:
   swagger-ui:
@@ -71,7 +71,7 @@ spring:
       on-profile: local
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/payback?user=root&password=secret
+    url: jdbc:postgresql://localhost:5432/test?user=root&password=secret
   jpa:
     properties:
       hibernate:

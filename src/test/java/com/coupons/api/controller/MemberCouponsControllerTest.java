@@ -1,8 +1,8 @@
-package com.payback.couponsapi.controller;
+package com.coupons.api.controller;
 
-import com.payback.couponsapi.model.CouponEntity;
-import com.payback.couponsapi.repository.CouponRepository;
-import com.payback.couponsapi.service.CouponService;
+import com.coupons.api.model.CouponEntity;
+import com.coupons.api.repository.CouponRepository;
+import com.coupons.api.service.CouponService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
